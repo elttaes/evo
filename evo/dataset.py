@@ -371,7 +371,7 @@ class EncodedFastaDataset(CollatableVocabDataset, FastaDataset):
 
     def __getitem__(self, index: int) -> torch.Tensor:
         desc, seq = super().__getitem__(index)
-        return torch.from_numpy(self.vocab.encode_single_sequence(seq))
+        return torch.from_numpy(self.vocab.encode_single_sequence(seq.upper()))
 
 
 class TorchDataset(CollatableVocabDataset):
